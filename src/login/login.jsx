@@ -1,12 +1,20 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './login.css';
 
 export function Login() {
+  const navigate = useNavigate();
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    navigate('/play');
+  }
+
   return (
     <main className="container-fluid bg-secondary text-center">
       <div>
         <h1>Welcome to Simon</h1>
-        <form method="get" action="play.html">
+        <form onSubmit={handleSubmit}>
           <div className="input-group mb-3">
             <span className="input-group-text">@</span>
             <input className="form-control" type="text" placeholder="your@email.com" />
